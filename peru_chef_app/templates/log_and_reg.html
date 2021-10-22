@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login and registration</title>
+    <link rel="stylesheet" type="text/css" href="../static/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="logo">
+                <img src="https://static.wixstatic.com/media/cf3157_d885bc01dcf64f298694a5913d0678f9~mv2.jpg/v1/fill/w_262,h_141,al_c,q_80,usm_0.66_1.00_0.01/cf3157_d885bc01dcf64f298694a5913d0678f9~mv2.webp"
+                    alt="logo">
+
+            </div>
+            <div class="topnav">
+                <a class="#active" href="/">Home</a>
+                <a href="/products">Products</a>
+                <a href="/contact">Contact Us</a>
+                <a href="https://www.facebook.com/PERU-CHEF-343922982353194/?ref=page_internal" class="fa fa-facebook">
+                    Facebook</a>
+                <a href="https://instagram.com/peruchefgroup?utm_medium=copy_link" class="fa fa-instagram">
+                    Instagram</a>
+                <a href="/login">Login</a>
+            </div>
+        </div>
+            <h1>login and registration</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="logreg">
+            <div class="reg">
+                <h2>register</h2>
+                <form action="/users/register" method="POST">
+                    <p>First Name: <input name="first_name" type="text"></p>
+                    <p>Last Name: <input name="last_name" type="text"></p>
+                    <p>Email: <input name="email" type="email"></p>
+                    <p>Password: <input name="password" type="password"></p>
+                    <p>Confirm password: <input name="confirm_password" type="password"></p>
+    
+                    <button type="submit">register</button>
+                </form>
+            </div>
+            <div class="log">
+                <h2>login</h2>
+                <form action="/users/login" method="POST">
+                    <p>Email: <input name="email" type="email"></p>
+                    <p>Password: <input name="password" type="password"></p>
+                    <button type="submit">login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
